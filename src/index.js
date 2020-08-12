@@ -11,6 +11,7 @@ const appendChildren = (parent, children) => {
 const content = document.getElementById("content");
 
 const tabSwitcher = (section) => {
+  // First child is header, second child is section
   content.removeChild(content.childNodes[1]);
 
   if (section === "home") {
@@ -37,13 +38,14 @@ const header = (() => {
 
   const createUL = () => {
     const navBar = document.createElement("ul");
-    navBar.setAttribute("class", "nav-list");
+    navBar.setAttribute("class", "nav-container");
 
     const li = (linkText, section) => {
       const listItem = document.createElement("li");
-      const navLink = document.createElement("a");
+      listItem.setAttribute("class", "nav-item");
+      const navLink = document.createElement("button");
       navLink.setAttribute("href", "#");
-      navLink.setAttribute("class", "nav-links");
+      navLink.setAttribute("class", "nav-link");
       navLink.innerText = linkText;
       navLink.addEventListener("click", () => {
         tabSwitcher(section);
