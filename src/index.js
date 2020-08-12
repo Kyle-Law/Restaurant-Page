@@ -10,12 +10,13 @@ const appendChildren = (parent, children) => {
 
 const content = document.getElementById("content");
 
-const tabSwitcher = (section) => {
+const tabController = (section) => {
   // First child is header, second child is section
   content.removeChild(content.childNodes[1]);
 
   if (section === "home") {
     content.appendChild(home);
+    document.getElementById("home-btn").focus();
   } else if (section === "about") {
     content.appendChild(about);
   } else if (section === "menu") {
@@ -33,6 +34,9 @@ const header = (() => {
     const logo = document.createElement("h1");
     logo.textContent = "Brocollily";
     logoContainer.appendChild(logo);
+    logoContainer.addEventListener("click", () => {
+      tabController("home");
+    });
     return logoContainer;
   };
 
@@ -40,25 +44,28 @@ const header = (() => {
     const navBar = document.createElement("ul");
     navBar.setAttribute("class", "nav-container");
 
-    const li = (linkText, section) => {
+    const createLi = (linkText, section) => {
       const listItem = document.createElement("li");
       listItem.setAttribute("class", "nav-item");
-      const navLink = document.createElement("button");
-      navLink.setAttribute("href", "#");
-      navLink.setAttribute("class", "nav-link");
-      navLink.innerText = linkText;
-      navLink.addEventListener("click", () => {
-        tabSwitcher(section);
+      const navBtn = document.createElement("button");
+
+      navBtn.setAttribute("class", "nav-btn");
+      navBtn.setAttribute("id", "home-btn");
+      navBtn.innerText = linkText;
+      navBtn.addEventListener("click", () => {
+        tabController(section);
       });
-      listItem.appendChild(navLink);
+      listItem.appendChild(navBtn);
       return listItem;
     };
+
     appendChildren(navBar, [
-      li("Home", "home"),
-      li("About", "about"),
-      li("Menu", "menu"),
-      li("Contact", "contact"),
+      createLi("Home", "home"),
+      createLi("About", "about"),
+      createLi("Menu", "menu"),
+      createLi("Contact", "contact"),
     ]);
+
     return navBar;
   };
 

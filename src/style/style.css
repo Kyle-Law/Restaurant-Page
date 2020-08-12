@@ -57,6 +57,7 @@ nav ul li button {
   cursor: pointer;
   font-size: 1.5rem;
   outline: none;
+  border: none;
 }
 
 nav ul li button:hover,
