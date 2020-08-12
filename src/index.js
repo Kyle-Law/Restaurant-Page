@@ -1,8 +1,8 @@
 import "./style/style.css";
-// import home from "./js/home";
-// import about from "./js/about";
-// import menu from "./js/menu";
-// import contact from "./js/contact";
+import home from "./js/home";
+import about from "./js/about";
+import menu from "./js/menu";
+import contact from "./js/contact";
 
 const appendChildren = (parent, children) => {
   children.forEach((child) => parent.appendChild(child));
