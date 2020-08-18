@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
 
 :root {
   --primary-color: rgb(181, 0, 0);
@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  font-family: Henny Penny, sans-serif;
+  font-family: Pangolin, sans-serif;
   font-size: 20px;
   color: var(--font-color-primary);
   margin: 0;
@@ -26,7 +26,7 @@ body {
 }
 
 button {
-  font-family: Henny Penny, sans-serif;
+  font-family: Pangolin, sans-serif;
 }
 
 a {
